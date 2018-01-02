@@ -54,6 +54,7 @@ do
 	 WORKER_IP=${WORKER_IP} openssl x509 -req -in ${FQDN}-worker.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out ${FQDN}-worker.pem -days 365 -extensions v3_req -extfile worker-openssl.cnf
 done
 
+# Create ssl directory and copy pem to it
 sudo mkdir -p /etc/kubernetes/ssl
 sudo cp ~/kube-ssl/*.pem /etc/kubernetes/ssl
 
